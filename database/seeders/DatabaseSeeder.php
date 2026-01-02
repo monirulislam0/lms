@@ -17,10 +17,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ])->limit(10);
-        OrderSeeder::class;
+       User::factory()->create([
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        ]);
+
+    // Create 9 more dummy users
+    User::factory(9)->create();
+       $this->call([
+          OrderSeeder::class,
+       ]);
     }
 }
