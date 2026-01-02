@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
     User::factory(9)->create();
        $this->call([
           OrderSeeder::class,
+          AddressSeeder::class,
        ]);
     }
 }

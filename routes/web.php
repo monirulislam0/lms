@@ -4,7 +4,12 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FileSystem;
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
-   return redirect()->route('file.index');
+
+        $users = \App\Models\User::all();
+        $users->load('addresses');
+
+        return view('welcome', compact('users'));
+
 });
 
 Route::get('/join', function (){
